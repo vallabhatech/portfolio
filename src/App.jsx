@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import CodingStats from './components/CodingStats';
 import LinksPage from './components/LinksPage';
+import Resume from './components/Resume';
 import { motion, useScroll, useSpring } from "framer-motion";
 import Loading from './components/Loading';
 
@@ -61,6 +62,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/links" element={<LinksPage />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
         <Footer />
       </div>
