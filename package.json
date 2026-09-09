@@ -1,8 +1,9 @@
 {
   "name": "react-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
