@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
@@ -10,7 +10,6 @@ import CodingStats from './components/CodingStats';
 import LinksPage from './components/LinksPage';
 import Resume from './components/Resume';
 import { motion, useScroll, useSpring } from "framer-motion";
-import Loading from './components/Loading';
 
 const MainContent = () => (
   <>
@@ -23,33 +22,12 @@ const MainContent = () => (
 );
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
-
-  useEffect(() => {
-    // Pre-load any critical resources here
-    const preloadResources = async () => {
-      try {
-        // Simulate resource loading
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setLoading(false);
-      } catch (error) {
-        console.error('Loading error:', error);
-        setLoading(false); // Ensure content shows even if there's an error
-      }
-    };
-
-    preloadResources();
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <Router>
